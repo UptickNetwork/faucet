@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Faucet for Cosmos SDK Blockchain</title>
+    <link rel="icon" href="https://ping.pub/favicon.ico" />
+    <meta name=”robots” content="index, follow">
+    <meta name="description" content="Uniform Faucet Tool For Cosmos SDK Blockchains - Powered By Ping.pub">
+    <meta></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <div id="app">
+      <div class="head">
+       <img src="https://www.uptick.network/assets/img/01/Uptick%20Network%20logo.svg" class="logo"  height="43" alt="icon">
+      </div>
+      <div class="main ">
+        <div class="table">
+          <div class="contant">
+            <div class="title">$UPTICK Faucet</div>
+            <div class="title-15 mt-3">
+              Free faucet for the Uptick blockchain mainnet. Complete verification, post a tweet and receive $UPTICK tokens in a matter of seconds. These tokens are enough to perform several on-chain operations in Uptick Network.
+            </div>
+            <div class="title-bold mt-4 mb-2">
+              Please note that:
+            </div>
+            <div class="title-15">
+              · This is only for new users who do not hold any $UPTICK <br/>
+              · Only available in Genesis phase, and the available token is limited
+            </div>
+            <div class="verify">
+              <div class="left">
+                <div class="step">
+                  <div class="title">Step 1 </div>
+                  <div class="line"></div>
+                </div>
+                <div class="title-15-bold">
+                  Uptick Network Address
+                </div>
+                <input class="inputAddress" placeholder="Input your Uptick Network address" v-model='addressValue'>
+                <form  method="POST" class="mt-4">
+                  <div class="g-recaptcha" data-sitekey="6LdLneEkAAAAAME5wTiT66i0sDq8zHRbtS3egr6j"></div>
+                  <br/>
+                  <input type="submit" value="Submit" class="submitVal1">
+                </form>
+              
+              </div>
+              <div class="right">
+                <div class="step">
+                  <div class="title">Step 2 </div>
+                  <div class="line"></div>
+                </div>
+                <div class="title-15-bold">
+                  Send A Tweet
+                </div>
+                <textarea class="textare"  cols="30" rows="10"></textarea>
+                <div class="parvate">
+                  <input  type="checkbox"  v-model='checkBox' class="checkbox" />
+                  <div class="username">Keep my Twitter username private</div>
+
+                </div>
+                <input type="submit" value="Twitter" class="submitVal">
+                  <!-- <div class="twitter"> <img src="https://www.uptick.network/assets/img/08/icon_twitter.png" width="20" height="16" alt=""> TWEET</div> -->
+              </div>
+  
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+      <footer class="footer d-flex flex-column">
+        <div class="d-flex flex-column" style="width: 100%;">
+          <div class="allinfo d-flex justify-space-between">
+            <div class="community" style="width: 40%;">
+              <div class="text-20">Community</div> 
+              <div class="iconimg d-flex flex-row mt-4">
+                <a href="https://discord.com/invite/teqX78VZUV" target="_blank">
+                  <img src="https://www.uptick.network/assets/img/08/icon_discord.png" width="37" height="28" alt="discord"  >
+                </a>
+                <a href="https://uptickproject.medium.com/" target="_blank">
+                  <img src="https://www.uptick.network/assets/img/08/icon_medium.png" width="37" height="28" alt="" style="margin-left: 44px;">
+                </a>
+               
+                <a href="https://twitter.com/Uptickproject" target="_blank">
+                  <img src="https://www.uptick.network/assets/img/08/icon_twitter.png" width="37" height="28" alt="" style="margin-left: 44px;">
+                </a>
+                <a href="https://t.me/uptickproject" target="_blank">
+                  <img src="https://www.uptick.network/assets/img/08/icon_telegram.png" width="37" height="28" alt="" style="margin-left: 44px;">
+                </a>
+                <a href="mailto:hello@uptickproject.com" target="_blank">
+                  <img src="https://www.uptick.network/assets/img/08/icon_email.png" width="37" height="28" alt="" style="margin-left: 44px;">     
+                </a>
+                
+               
+               
+              </div>
+              <div class="text-20" style="margin-top: 75px;margin-bottom: 15px;">Developers</div>
+              <div class="title-16">GitHub</div>
+              <div class="title-16">Discord Tech Support</div>
+             
+             
+            </div>
+            <div style="width: 30%;">
+              <div class="text-20">Validators</div> 
+              <div class="title-16 mt-4" >Discord Validators </div>
+              <div class="text-20" style="margin-top: 68px;margin-bottom: 15px;">Discord Validators </div>
+              <div class="title-16">Blog</div>
+              <div class="title-16">Docs</div>
+              <div class="title-16">Community Resources</div>
+              
+            </div>
+            <div style="width: 30%;">
+              <div class="text-20">Newsletter</div> 
+              <input id="email" type="email" v-model="value" class="form-control email mt-4"
+              placeholder="Enter your email to sign up for the newsletter">
+              <div class="Subscribe mt-3" onclick="LearnMore()">Learn more</div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="copyright d-flex flex-row">
+          <img src="https://www.uptick.network/assets/img/01/Uptick%20Network%20logo.svg" class="footlogo"  height="43" alt="icon">
+          <div class="title-copy">Copyright ©2019-2023 Uptick Network. All rights reserved.</div>
+        </div>
+        
+       
+      </footer>
+      
+    
+      <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2022 Built By <a href="https://ping.pub">Ping.pub</a><span id="deployer" v-html="deployer"></span></p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://github.com/ping-pub/faucet.git">Deploy a new instance?</a></li>
+        </ul>
+        <p> Faucet Address: {{ faucet }}, <br> Balance: {{ balance.amount }} {{balance.denom}}</p>
+      </footer> -->
+    </div>
+    <script>
+     let LearnMore = function(){
+        console.log('ssssss');
+      }
+    </script>
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+      createApp({
+        data() {
+          return {
+            discodeurl:"https://discord.com/invite/teqX78VZUV",
+            checkBox:'',
+            message: '',
+            testnet: 'Ping Testnet',
+            logo: 'https://ping.pub/logo.svg',
+            deployer: '',
+            address: '',
+            chain: '',
+            conf: {},
+            balance: {},
+            addressValue:''
+          }
+        },
+        created() {
+          console.log('mounted ---- ',this.discodeurl);
+          fetch("/config.json").then(response => response.json()).then(data => {
+            this.conf = data
+            this.testnet = data.name
+            this.logo = data.logo
+            this.chain = data.blockchains[0]
+            // this.placeholder = `Input an address (e.g.: ${data.sample[this.chain]}) to received tokens`
+            this.onChange()
+            if(data.deployer) {
+                this.deployer = `, Hosted By ${data.deployer}`
+            }
+          });
+        },
+        computed: {
+          placeholder() {
+            if(this.conf.sample) {
+              return `Input an address (e.g.: ${this.conf.sample[this.chain]}) to received tokens`
+            } else {
+              return 'Input an address to received tokens'
+            }
+          },
+          faucet() {
+            return this.conf.sample? this.conf.sample[this.chain] : ''
+          }
+        },
+        methods: {
+          onChange() {
+            this.balance = {} // reset balance
+            fetch(`/balance/${this.chain}`).then(r => r.json()).then(balance => {
+              this.balance = balance
+            })
+          },
+          requestToken(obj) {
+            if (this.address) {
+              // button state
+              obj.disabled = true
+              document.getElementById("button-loading").style.display = 'block';
+              
+              fetch(`/send/${this.chain}/${this.address}`).then(response => response.json()).then(data => {
+                  // button state
+                  obj.disabled = false
+                  document.getElementById("button-loading").style.display = 'none';
+                  // show result
+                  this.message = `
+                  <div class="alert alert-${data.result.code ===0? 'success': 'danger'} alert-dismissible show fade mt-2" role="alert">
+                      <li>${data.result.code ===0? 'Token sent': 'Request failed'}</li>
+                      <textarea class="form-control mt-1" rows="5" style="background-color:transparent">${JSON.stringify(data, null, 2)}</textarea>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  `
+              });
+            } else {
+                this.message = '<span class="text-danger">Address is required</span>'
+            }
+          },
+         
+        }
+      }).mount('#app')
+    </script>
+    <style  lang="scss" scoped>
+      .title-copy{
+        font-family: AvenirNext-Medium;
+      font-size: 15px;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 30px;
+      letter-spacing: 0px;
+      color: #cccccc;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      margin-left: 45px;
+      }
+      .copyright{
+        margin-left: 12%;
+        margin-top: 20px;
+      }
+      .Subscribe{
+        width: 146px;
+	height: 46px;
+	background-image: linear-gradient(90deg, 
+		#b633f1 0%, 
+		#dc539c 50%, 
+		#ff704a 100%);
+  border-radius: 5px;
+  font-family: AvenirNext-Medium;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 20px;
+	letter-spacing: 0px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+      }
+      .submitVal{
+        color: #ffffff;
+        margin-top: 23px;
+        width: 350px;
+      height: 36px;
+      background-color: #6c1eaf;
+      border-radius: 5px;
+        border: 1px solid white;
+      }
+      .submitVal1{
+        color: #ffffff;
+        margin-top: 15px;
+        width: 350px;
+      height: 36px;
+      background-color: #6c1eaf;
+      border-radius: 5px;
+        border: 1px solid white;
+      }
+      .app{
+        display: flex;
+        flex-direction: column;
+      }
+      .step{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .textare{
+        width: 350px;
+        height: 100px;
+        border-radius: 5px;
+        border: solid 2px #e6d4fc;
+        margin-top: 10px;
+        padding:15px;
+        
+      }
+      .twitter{
+          width: 350px;
+          height: 36px;
+          background-color: #6c1eaf;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 32px;
+          font-family: AvenirNext-Medium;
+          font-size: 15px;
+          font-weight: normal;
+          font-stretch: normal;
+          line-height: 20px;
+          letter-spacing: 1px;
+          color: #ffffff;
+      }
+
+    
+      .parvate{
+        width: 350px;
+        height: 43px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: solid 2px #e6d4fc;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 14px;
+
+      }
+      .checkbox{
+        width: 25px;
+        height: 26px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        border: solid 2px #cccccc;
+        margin-left: 10px;
+      }
+      .username{
+        margin-left: 20px;
+        font-family: AvenirNext-Medium;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #766983;
+      }
+      .inputAddress{
+        width: 360px;
+        height: 45px;
+        border-radius: 5px;
+        border: solid 2px #e6d4fc;
+        padding-left: 15px;
+        margin-top: 10px;
+      }
+      .verify{
+        display: flex;
+        flex-direction: row;
+        margin-top: 35px;
+      }
+      .left{
+        width: 50%;
+      }
+      .line{
+        width: 260px ;
+        border: solid 1px #e6d4fc;
+        margin-left: 12px;
+      }
+      .right{
+        width:50%
+      }
+      .title-bold{
+        font-family: AvenirNext-Medium;
+      font-size: 15px;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 20px;
+      letter-spacing: 0px;
+      color: #270645;
+      }
+      .text-20{
+        font-family: AvenirNext-Bold;
+        font-size: 20px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #ffffff;
+      }
+      .title-15-bold{
+        margin-top: 24px;
+        font-family: AvenirNext-Bold;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 20px;
+        letter-spacing: 0px;
+        color: #270645;
+      }
+      .title-16{
+      
+        font-family: AvenirNext-Medium;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 35px;
+        letter-spacing: 0px;
+        color: #cccccc;
+        }
+      .title-15
+      {
+        width: 760px;
+        font-family: AvenirNext-Medium;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 22px;
+        letter-spacing: 0px;
+        color: #766983;
+      }
+      .title{
+        font-family: AvenirNext-Bold;
+        font-size: 28px;
+        font-weight: normal;
+        font-stretch: normal;
+        line-height: 30px;
+        letter-spacing: 0px;
+        color: #6c1eaf;
+      }
+      .head{
+        width: 100%;
+        height: 70px;
+      background-image: linear-gradient(
+        #6c1daf, 
+        #6c1daf), 
+      linear-gradient(
+        #471175, 
+        #471175);
+      background-blend-mode: normal, 
+        normal;
+      }
+      .logo{
+        margin-left:  12%;
+        margin-top: 12px;
+      }
+      .footlogo{
+
+      }
+      .table{
+        width: 900px;
+        height: 650px;
+        border: 1px solid white;
+        margin: 65px auto;
+      }
+      .contant{
+        margin:50px 40px 0 50px;
+
+      }
+      .allinfo{
+        margin-left: 12%;
+        margin-right: 12%;
+        margin-top: 50px;
+      }
+      .footer{
+     
+     height: 450px;
+     width: 100%;
+     background-image: linear-gradient(
+        #6c1daf, 
+        #6c1daf), 
+      linear-gradient(
+        #471175, 
+        #471175);
+      background-blend-mode: normal, 
+        normal;
+      }
+    </style>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        // alert("grecaptcha is ready!");
+      };
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+  </body>
+</html>
