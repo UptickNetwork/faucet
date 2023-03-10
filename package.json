@@ -6,7 +6,8 @@
   "main": "faucet.js",
   "scripts": {
     "start": "node --experimental-modules --es-module-specifier-resolution=node faucet.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pm2" :"pm2 start 'node --experimental-modules --es-module-specifier-resolution=node faucet.js' --name='faucet' -- --watch"
   },
   "repository": {
     "type": "git",
