@@ -41,7 +41,7 @@
                 </div>
                 <input class="inputAddress" placeholder="Input your Uptick Network address" v-model='address'>
                 <form  method="POST" class="mt-4">
-                  <div class="g-recaptcha" data-sitekey="6LcHTu0kAAAAAJnhHQQyL9sty8cuEEqz-kijIt-7"></div>
+                  <div class="g-recaptcha" data-sitekey="6LcDr_ckAAAAAJs6Pn9wRiVo6mpwzcf8bywcZk1A"></div>
                   <br/>
                   <input type="submit" value="Submit"  class="submitVal1">
                 </form>
@@ -144,6 +144,11 @@
      let LearnMore = function(){
       save();
       }
+      grecaptcha.enterprise.ready(function() {
+      grecaptcha.enterprise.execute('6LcDr_ckAAAAAJs6Pn9wRiVo6mpwzcf8bywcZk1A', {action: 'login'}).then(function(token) {
+       console.log('sssss');
+    });
+});
     </script>
     <script type="module">
       import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
@@ -507,8 +512,9 @@
         // alert("grecaptcha is ready!");
       };
     </script>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>
-</script>
+</script> -->
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LcDr_ckAAAAAJs6Pn9wRiVo6mpwzcf8bywcZk1A"></script>
   </body>
 </html>
