@@ -142,13 +142,7 @@
     <script>
      
      let LearnMore = function(){
-      save();
       }
-      grecaptcha.enterprise.ready(function() {
-      grecaptcha.enterprise.execute('6LcDr_ckAAAAAJs6Pn9wRiVo6mpwzcf8bywcZk1A', {action: 'login'}).then(function(token) {
-       console.log('sssss');
-    });
-});
     </script>
     <script type="module">
       import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
@@ -512,9 +506,8 @@
         // alert("grecaptcha is ready!");
       };
     </script>
-    <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer>
-</script> -->
-<script src="https://www.google.com/recaptcha/enterprise.js?render=6LcDr_ckAAAAAJs6Pn9wRiVo6mpwzcf8bywcZk1A"></script>
+</script>
   </body>
 </html>
