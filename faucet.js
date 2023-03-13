@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/config.json', async (req, res) => {
+  debugger
   const sample = {}
   for(let i =0; i < conf.blockchains.length; i++) {
     const chainConf = conf.blockchains[i]
@@ -36,6 +37,9 @@ app.get('/config.json', async (req, res) => {
     pathToString
     const wallet2 = Wallet.fromMnemonic(chainConf.sender.mnemonic, pathToString(chainConf.sender.option.hdPaths[0]));
     console.log('address:', firstAccount.address, wallet2.address)
+
+
+    
   }
 
   const project = conf.project
@@ -99,6 +103,23 @@ app.get('/send/:chain/:address', async (req, res) => {
       console.error(err);
       res.send({ result: 'Failed, Please contact to admin.' })
     }
+
+  } else {
+    // send result
+    res.send({ result: 'address is required' });
+  }
+})
+
+app.get('/sendTwitterInfo/:twitterId/:address', async (req, res) => {
+  const {twitterId, address} = req.params;
+  if (twitterId || address ) {
+   try {
+    await checker.saveTwitterId(address,twitterId)
+    await checker.checkTwitterIdFromAddress(address)
+
+   } catch (error) {
+     
+   }
 
   } else {
     // send result
@@ -178,3 +199,13 @@ async function sendTx(recipient, chain) {
   }
   return sendCosmosTx(recipient, chain)
 }
+
+//  export async function save() {
+//   await checker.saveTwitterId()
+  
+//  }
+ 
+// export async function get() {
+//   await checker.checkTwitterIdFromAddress()
+  
+// }

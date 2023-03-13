@@ -33,7 +33,30 @@ export class FrequencyChecker {
         const chainLimit = this.conf.blockchains.find(x => x.name === chain)
         return chainLimit ? this.check(address, chainLimit.limit.address ) : Promise.resolve(false)
     }
+    async saveTwitterId(address,twitterId) {
+        const db = this.db
+        db.put(address,twitterId)
+   
+    }
 
+    async checkTwitterIdFromAddress(address) {
+        console.log('address',address);
+       return new Promise((resolve) => {
+        this.db.get(address, function (err, value) {
+        console.log('wwwwwwww',value);
+            if (err) {
+                console.log('11111',err);
+                resolve(true)
+              
+            } else {
+                console.log(22222222);
+                resolve(false)
+      
+            }
+        });
+    })
+    }
+    
     async update(key) {
         const db = this.db
         db.get(key, function (err, history) {

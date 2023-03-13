@@ -41,7 +41,7 @@
                 </div>
                 <input class="inputAddress" placeholder="Input your Uptick Network address" v-model='address'>
                 <form  method="POST" class="mt-4">
-                  <div class="g-recaptcha" data-sitekey="6LdLneEkAAAAAME5wTiT66i0sDq8zHRbtS3egr6j"></div>
+                  <div class="g-recaptcha" data-sitekey="6LcHTu0kAAAAAJnhHQQyL9sty8cuEEqz-kijIt-7"></div>
                   <br/>
                   <input type="submit" value="Submit"  class="submitVal1">
                 </form>
@@ -62,7 +62,7 @@
                   <div class="username">Keep my Twitter username private</div>
 
                 </div>
-                <input type="submit" value="Twitter"  class="submitVal">
+                <input type="submit" value="Twitter"  class="submitVal" @click="sendTwitterInfo(this)">
                   <!-- <div class="twitter"> <img src="https://www.uptick.network/assets/img/08/icon_twitter.png" width="20" height="16" alt=""> TWEET</div> -->
               </div>
   
@@ -140,8 +140,9 @@
       </footer> -->
     </div>
     <script>
+     
      let LearnMore = function(){
-        console.log('ssssss');
+      save();
       }
     </script>
     <script type="module">
@@ -156,9 +157,10 @@
             logo: 'https://ping.pub/logo.svg',
             deployer: '',
             address: '',
-            chain: '',
+            chain: 'uptickd_7000-2',
             conf: {},
             balance: {},
+            twitterId:'123456'
           }
         },
         created() {
@@ -167,7 +169,7 @@
             this.conf = data
             this.testnet = data.name
             this.logo = data.logo
-            this.chain = data.blockchains[0]
+            // this.chain = data.blockchains[0]
             // this.placeholder = `Input an address (e.g.: ${data.sample[this.chain]}) to received tokens`
             this.onChange()
             if(data.deployer) {
@@ -198,13 +200,36 @@
             debugger
             if (this.address) {
               // button state
-              obj.disabled = true
-              document.getElementById("button-loading").style.display = 'block';
+              // obj.disabled = true
+              // document.getElementById("button-loading").style.display = 'block';
               
               fetch(`/send/${this.chain}/${this.address}`).then(response => response.json()).then(data => {
                   // button state
-                  obj.disabled = false
-                  document.getElementById("button-loading").style.display = 'none';
+                  // obj.disabled = false
+                  // document.getElementById("button-loading").style.display = 'none';
+                  // show result
+                  this.message = `
+                  <div class="alert alert-${data.result.code ===0? 'success': 'danger'} alert-dismissible show fade mt-2" role="alert">
+                      <li>${data.result.code ===0? 'Token sent': 'Request failed'}</li>
+                      <textarea class="form-control mt-1" rows="5" style="background-color:transparent">${JSON.stringify(data, null, 2)}</textarea>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                  `
+              });
+            } else {
+                this.message = '<span class="text-danger">Address is required</span>'
+            }
+          },
+          sendTwitterInfo(obj) {
+            if (this.address) {
+              // button state
+              // obj.disabled = true
+              // document.getElementById("button-loading").style.display = 'block';
+              
+              fetch(`/sendTwitterInfo/${this.twitterId}/${this.address}`).then(response => response.json()).then(data => {
+                  // button state
+                  // obj.disabled = false
+                  // document.getElementById("button-loading").style.display = 'none';
                   // show result
                   this.message = `
                   <div class="alert alert-${data.result.code ===0? 'success': 'danger'} alert-dismissible show fade mt-2" role="alert">
